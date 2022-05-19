@@ -8,13 +8,15 @@ void setup() {
   size(1000, 1000);
   colorMode(HSB);
   //blendMode(MULTIPLY);
-  frameRate(5);
+  //frameRate(5);
 
 }
 
 
 void draw() {
   
+  xPos += random(-50, 50);
+   yPos += random(-20, 20);  
   rect(xPos, yPos, shapeWidth, shapeWidth);
   //xPos = xPos + shapeWidth;
   xPos += shapeWidth;
@@ -25,9 +27,13 @@ void draw() {
     float myHue =  map(yPos, 0,1000, 0, 255);
     println(myHue);
     
-    fill(myHue, 255,255);
+    fill(myHue, 255,255, 10);
     yPos += shapeWidth;
     xPos = 0;
+  }
+  
+  if(yPos >= height) {
+    yPos = 0;
   }
   
   
